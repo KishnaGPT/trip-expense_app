@@ -5,17 +5,33 @@ import { BalanceList } from './BalanceList';
 import { OptimizedSettlements } from './OptimizedSettlements';
 import { ExpenseList } from './ExpenseList';
 import { NetSettlements } from './NetSettlements';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 export function App(){
 
-  const [people, setPeople] = useState([]);
-  const [expenses, setExpenses] = useState([]);
+  const [people, setPeople] = useState(()=>{
+    const savedPeople = localStorage.getItem('people');
+  return savedPeople ? JSON.parse(savedPeople) : [];
+  });
+
+  const [expenses, setExpenses] = useState(()=>{
+    const savedExpenses = localStorage.getItem('expenses');
+  return savedExpenses ? JSON.parse(savedExpenses) : [];
+  });
+  
   const [showNetSettle, setNetSettle] = useState(false);
   const [showOptimized, setOptimized] = useState(false);
   const [showExpList, setExpList] = useState(false);
+
+  useEffect(() => {
+  localStorage.setItem('people', JSON.stringify(people));
+}, [people]);
+
+useEffect(() => {
+  localStorage.setItem('expenses', JSON.stringify(expenses));
+}, [expenses]);
 
   return<>
    
@@ -26,7 +42,6 @@ export function App(){
         <PersonForm people={people} setPeople={setPeople}/>
 
         <ExpenseForm people={people} expenses={expenses} setExpenses={setExpenses}/>
-
 
         <div className='my-3 d-flex flex-column w-50 gap-3'>
           <button
@@ -76,6 +91,13 @@ export function App(){
         )}
 
         <BalanceList people={people} expenses={expenses}/>
+
+        <button className='btn btn-danger mt-3' onClick={() => {
+          localStorage.clear();
+          setPeople([]);
+          setExpenses([]);
+        }}>Clear All</button>
+
       </div>
   </div>
   </>
