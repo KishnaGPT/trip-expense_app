@@ -7,7 +7,7 @@ export function ExpenseList({ expenses }) {
   // with the help of ternery operator we are filtering the expenses if selected category is all then display all the expense otherwise filter the expense based on the category selected
   const filteredExpenses = selectedCategory === 'All' ? expenses : expenses.filter(exp => exp.category === selectedCategory); //this will show only that expenses which has the required category
   // creating array of categories like All, activities etc.
-  const categories = ['All', 'Activity', 'Drinks', 'Travel', 'Food','Shopping','Snacks','Stay', 'Other']; 
+  const categories = ['All', 'Activity', 'Drinks', 'Travel', 'Food','Shopping','Snacks','Stay', 'Other', 'Paidback']; 
 
   return<>
     <div className="mt-4">
