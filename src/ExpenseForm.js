@@ -79,6 +79,7 @@ export function ExpenseForm({people, expenses, setExpenses}){
                             <option value="Snacks">Snacks</option>
                             <option value="Stay">Stay</option>
                             <option value="Other">Other</option>
+                            <option value="Paidback">Paidback</option>
                         </select>
                 </div>
 
