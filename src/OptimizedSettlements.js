@@ -39,6 +39,7 @@ function optimizeSettle(balances) {
     return transactions;
 }
 
+
 // this component take two props people array and expenses object
 export function OptimizedSettlements({ people, expenses }) {
     // creating an balance array where each person has the 0 balance
