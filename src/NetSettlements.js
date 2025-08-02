@@ -22,17 +22,18 @@ export function NetSettlements({ people, expenses }) {
       }
     });
   });
+  // A->B = 10, B->A 20 // bidirectional
 
   //net out bidirectional grossTransactions
   const netTransactions = {}; //holds the single transaction between 2 person
 
-  // since we can use array function on objects hence we are converting objects into array using Object.entries()
+  // since we cannot use array function on objects hence we are converting objects into array using Object.entries()
   let grossArray = Object.entries(grossTransactions) // convert objects as [["Amit->Krishna", 100], ["Krishna->Amit", 60]]
 
   // iterating grossarray 
   grossArray.forEach(([key, amount]) => {
     // spliting the key where there is -> into from and to
-    const [from, to] = key.split('->');
+    const [from, to] = key.split('->'); //from=A, to=B
     const reverseKey = `${to}->${from}`;  // creating reverse key A->B into B->A
 
 
