@@ -5,8 +5,11 @@ export function ExpenseList({ expenses }) {
   const [selectedCategory, setSelectedCategory] = useState('All'); 
   
   // with the help of ternery operator we are filtering the expenses if selected category is all then display all the expense otherwise filter the expense based on the category selected
+
   const filteredExpenses = selectedCategory === 'All' ? expenses : expenses.filter(exp => exp.category === selectedCategory); //this will show only that expenses which has the required category
+
   // creating array of categories like All, activities etc.
+
   const categories = ['All', 'Activity', 'Drinks', 'Travel', 'Food','Shopping','Snacks','Stay', 'Other', 'Paidback']; 
 
   return<>
@@ -37,7 +40,7 @@ export function ExpenseList({ expenses }) {
             {/* loops through filteresd expenses and creating a row for each expenses list by seperating the properties of each expense column wise */}
             {filteredExpenses.map((exp, i) => (
               <tr key={i}>
-                <td>{exp.payer}</td>
+                <td>{exp.payer}</td> 
                 <td>₹{exp.amount.toFixed(2)}</td>
                 <td>{exp.sharedWith.join(', ')}</td>
                 <td>{exp.individualShare.toFixed(2)}</td>
