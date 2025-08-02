@@ -35,6 +35,7 @@ export function BalanceList({ people, expenses }) {
   return <>
     <div className="mt-4">
       <h2 className="h2">📊 Balances</h2>
+      
       <ul className="list-group mt-2">
         {/* since our balances is an object we cannot use map method on it hence we are converting the object into something on which we can iterate */}
         {/* object.entries will iterate on each keys and their values in balances object */}
