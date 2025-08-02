@@ -63,7 +63,6 @@ export function ExpenseForm({people, expenses, setExpenses}){
         }
 
 
-
     return <>
         <div>
             <h2 className='mb-4'>💰 Add Expense</h2>
