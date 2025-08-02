@@ -31,6 +31,7 @@ export function PersonForm({people, setPeople}){
         setPeople(updatedPeople);  //setting the updated array to people array 
     }
 
+    
     return<>
         <div className="mb-4">
             <h2 className="h2 mb-3">👥 Add People</h2>
